@@ -1,6 +1,6 @@
 # QuareteLog
 
-My personal "blog" started in 2020's quaretine.
+My personal "blog" started in 2020's quarentine.
 
 ## Getting Started
 
