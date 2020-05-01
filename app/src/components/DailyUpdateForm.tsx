@@ -1,21 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, MouseEvent } from 'react'
 import { DailyUpdateProps } from '../types/props'
 import { getTodaysDate } from '../functions'
-
-interface DailyUpdate {
-	author: String
-	date: String
-	message: String
-}
+import { addDailyUpdate } from '../connectors/APIConector'
 
 export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 	props
 ) => {
-	const [author, setAuthor] = useState('')
 	const date = getTodaysDate()
-	const [message, setMessage] = useState('')
+	const [dailyUpdateAuthor, setDailyUpdateAuthor] = useState('')
+	const [dailyUpdateMessage, setDailyUpdateMessage] = useState('')
+	const [requestText, setRequestText] = useState('')
 
-	console.log(date)
+	const sendDailyUpdate = (e: MouseEvent): void => {
+		e.preventDefault()
+
+		const dailyUpdate = {
+			author: dailyUpdateAuthor,
+			date: date,
+			message: dailyUpdateMessage
+		}
+
+		addDailyUpdate(dailyUpdate)
+			.then((response) => {
+				console.log(response)
+				setRequestText('Daily Update successfully added.')
+			})
+			.catch((error) => {
+				setRequestText('There was a problem with the Daily Update.')
+			})
+	}
 
 	return (
 		<div>
@@ -25,8 +38,8 @@ export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 					<input
 						type="text"
 						name="author"
-						value={author}
-						onChange={(e) => setAuthor(e.target.value)}
+						value={dailyUpdateAuthor}
+						onChange={(e) => setDailyUpdateAuthor(e.target.value)}
 					/>
 				</label>
 				<label>
@@ -34,11 +47,14 @@ export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 					<input
 						type="text"
 						name="message"
-						value={message}
-						onChange={(e) => setMessage(e.target.value)}
+						value={dailyUpdateMessage}
+						onChange={(e) => setDailyUpdateMessage(e.target.value)}
 					></input>
 				</label>
+				<button onClick={sendDailyUpdate}>Add Daily Update</button>
 			</form>
+
+			<div>{requestText}</div>
 		</div>
 	)
 }
