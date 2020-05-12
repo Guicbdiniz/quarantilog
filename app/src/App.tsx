@@ -1,13 +1,19 @@
 import React from 'react'
 import { DailyUpdateForm } from './components/DailyUpdateForm'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { DailyUpdateSearch } from './components/DailyUpdateSearch'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 function App() {
 	return (
 		<Router>
 			<div className="App">
-				<h1> Quarantilog </h1>
+				<header>
+					<h1> Quarantilog </h1>
+					<Link to="/">Add Daily Update</Link>
+					<Link to="/dailyupdates">Search for Daily Update</Link>
+				</header>
 				<Switch>
+					<Route path="/dailyupdates" component={DailyUpdateSearch} />
 					<Route path="/" component={DailyUpdateForm} />
 				</Switch>
 			</div>
