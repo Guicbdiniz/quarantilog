@@ -10,10 +10,10 @@ function App() {
 				<header>
 					<h1> Quarantilog </h1>
 					<Link to="/">Add Daily Update</Link>
-					<Link to="/dailyupdates">Search for Daily Update</Link>
+					<Link to="/search">Search for Daily Update</Link>
 				</header>
 				<Switch>
-					<Route path="/dailyupdates" component={DailyUpdateSearch} />
+					<Route path="/search" component={DailyUpdateSearch} />
 					<Route path="/" component={DailyUpdateForm} />
 				</Switch>
 			</div>

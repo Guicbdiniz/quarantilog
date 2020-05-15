@@ -15,3 +15,13 @@ export const addDailyUpdate = async (
 		body: JSON.stringify(dailyUpdate)
 	})
 }
+
+export const getDailyUpdate = async (
+	searchedTerms: String
+): Promise<Response> => {
+	return await fetch(APIUrl + 'dailyupdate/search/', {
+		method: 'POST',
+		headers: jsonHeaders,
+		body: JSON.stringify({ date: searchedTerms })
+	})
+}
