@@ -2,6 +2,7 @@ import React, { useState, useEffect, MouseEvent } from 'react'
 import { DailyUpdateSearchProps } from '../types/props'
 import { DailyUpdateWithID as DailyUpdate } from '../types/dailyUpdates'
 import { getDailyUpdate } from '../connectors/APIConector'
+import '../style/DailyUpdateSearch.css'
 
 export const DailyUpdateSearch: React.FunctionComponent<DailyUpdateSearchProps> = (
 	props
@@ -48,7 +49,7 @@ export const DailyUpdateSearch: React.FunctionComponent<DailyUpdateSearchProps> 
 
 	const getDailyUpdatesAsHTMLElements = () => {
 		return dailyUpdates.map((dailyUpdate, index) => (
-			<div key={index}>
+			<div key={index} className="singleDailyUpdate">
 				<div>Date: {dailyUpdate.date}</div>
 				<div>Author: {dailyUpdate.author}</div>
 				<div>Message: {dailyUpdate.message}</div>
@@ -58,16 +59,19 @@ export const DailyUpdateSearch: React.FunctionComponent<DailyUpdateSearchProps> 
 
 	return (
 		<div>
-			<form>
+			<form className="searchForm">
 				<input
 					type="text"
 					name="searchedTerms"
+					className="searchInput"
 					value={searchedTerms}
 					onChange={(e) => setSearchedTerms(e.target.value)}
 				></input>
-				<button onClick={searchForDailyUpdates}>Add Daily Update</button>
+				<button onClick={searchForDailyUpdates}>Search Daily Update</button>
 			</form>
-			{getDailyUpdatesAsHTMLElements()}
+			<div className="dailyUpdatesResults">
+				{getDailyUpdatesAsHTMLElements()}
+			</div>
 		</div>
 	)
 }

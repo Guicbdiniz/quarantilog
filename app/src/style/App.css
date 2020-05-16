@@ -1,0 +1,37 @@
+@font-face {
+	font-family: 'RobotoCondensed';
+	src: url('../fonts/RobotoCondensed-Regular.ttf');
+}
+
+* {
+	font-family: RobotoCondensed, Arial, sans-serif;
+	margin: 0;
+	text-decoration: none;
+	color: black;
+}
+
+header {
+	text-align: center;
+}
+
+.title {
+	margin: 1rem;
+	font-size: 3em;
+}
+
+.nav {
+	background-color: whitesmoke;
+}
+
+.link {
+	font-size: 1.25rem;
+	margin: 1em;
+}
+
+.link:hover {
+	color: gray;
+}
+
+/* .link:not(:first-child):before {
+	content: ' | ';
+} */

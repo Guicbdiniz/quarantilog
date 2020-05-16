@@ -2,6 +2,7 @@ import React, { useState, MouseEvent } from 'react'
 import { DailyUpdateProps } from '../types/props'
 import { getTodaysDate } from '../functions'
 import { addDailyUpdate } from '../connectors/APIConector'
+import '../style/DailyUpdateForm.css'
 
 export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 	props
@@ -28,33 +29,38 @@ export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 			.catch((error) => {
 				setRequestText('There was a problem with the Daily Update.')
 			})
+
+		setDailyUpdateAuthor('')
+		setDailyUpdateMessage('')
 	}
 
 	return (
 		<div>
-			<form>
-				<label>
-					Author:
+			<form className="form">
+				<label className="formItem">
+					<div className="inputLabel">Author</div>
 					<input
 						type="text"
 						name="author"
+						className="formInput"
 						value={dailyUpdateAuthor}
 						onChange={(e) => setDailyUpdateAuthor(e.target.value)}
 					/>
 				</label>
-				<label>
-					Message:
-					<input
-						type="text"
-						name="message"
+				<label className="formItem">
+					<div className="inputLabel">Message</div>
+					<textarea
+						className="formInput message"
 						value={dailyUpdateMessage}
 						onChange={(e) => setDailyUpdateMessage(e.target.value)}
-					></input>
+					></textarea>
 				</label>
-				<button onClick={sendDailyUpdate}>Add Daily Update</button>
+				<button onClick={sendDailyUpdate} className="formItem formButton">
+					Add Daily Update
+				</button>
 			</form>
 
-			<div>{requestText}</div>
+			<div className="responseText">{requestText}</div>
 		</div>
 	)
 }
