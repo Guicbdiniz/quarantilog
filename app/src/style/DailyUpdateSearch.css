@@ -1,0 +1,25 @@
+.searchForm {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.searchInput {
+	margin: 1rem;
+}
+
+.dailyUpdatesResults {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+	margin-left: 5rem;
+}
+
+.singleDailyUpdate {
+	margin: 1rem;
+	font-size: 1.3rem;
+}
