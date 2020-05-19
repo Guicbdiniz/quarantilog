@@ -4,6 +4,10 @@ import { DailyUpdateSearch } from './components/DailyUpdateSearch'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import './style/App.css'
 
+/**
+ * App's main React Component.
+ * It contains, basically, a header with the App info and a navigation menu to switch between services.
+ */
 function App() {
 	return (
 		<Router>

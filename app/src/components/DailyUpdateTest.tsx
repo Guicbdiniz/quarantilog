@@ -2,6 +2,10 @@ import React from 'react'
 import { DailyUpdateTestProps } from '../types/props'
 import { getDailyUpdate } from '../connectors/APIConector'
 
+/**
+ * Test component.
+ * It's content is dynamic.
+ */
 export const DailyUpdateTest: React.FunctionComponent<DailyUpdateTestProps> = (
 	props
 ) => {

@@ -1,5 +1,7 @@
 /**
- * Get todays date as String in the format "day/month/year"
+ * Get todays date.
+ *
+ * @returns todays date as a dd/mm/yyyy String.
  */
 export const getTodaysDate = () => {
 	const date = new Date()

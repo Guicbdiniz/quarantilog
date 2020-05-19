@@ -4,6 +4,11 @@ import { DailyUpdateWithID as DailyUpdate } from '../types/dailyUpdates'
 import { getDailyUpdate } from '../connectors/APIConector'
 import '../style/DailyUpdateSearch.css'
 
+/**
+ * Component for searching and visualizing DailyUpdates.
+ *
+ * @param props - empty.
+ */
 export const DailyUpdateSearch: React.FunctionComponent<DailyUpdateSearchProps> = (
 	props
 ) => {
@@ -14,6 +19,11 @@ export const DailyUpdateSearch: React.FunctionComponent<DailyUpdateSearchProps> 
 
 	useEffect(() => {})
 
+	/**
+	 * Search for DailyUpdates in the DB with a date search query collected from the searchedTerms.
+	 *
+	 * @param e - mouse click.
+	 */
 	const searchForDailyUpdates = (e: MouseEvent): void => {
 		e.preventDefault()
 
@@ -47,6 +57,9 @@ export const DailyUpdateSearch: React.FunctionComponent<DailyUpdateSearchProps> 
 			})
 	}
 
+	/**
+	 * Maps DailyUpdates collected as HTML elements.
+	 */
 	const getDailyUpdatesAsHTMLElements = () => {
 		return dailyUpdates.map((dailyUpdate, index) => (
 			<div key={index} className="singleDailyUpdate">

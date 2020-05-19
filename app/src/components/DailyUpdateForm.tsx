@@ -4,6 +4,11 @@ import { getTodaysDate } from '../functions'
 import { addDailyUpdate } from '../connectors/APIConector'
 import '../style/DailyUpdateForm.css'
 
+/**
+ * Component for creating new DailyUpdates.
+ *
+ * @param props - empty.
+ */
 export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 	props
 ) => {
@@ -12,6 +17,11 @@ export const DailyUpdateForm: React.FunctionComponent<DailyUpdateProps> = (
 	const [dailyUpdateMessage, setDailyUpdateMessage] = useState('')
 	const [requestText, setRequestText] = useState('')
 
+	/**
+	 * Send new DailyUpdates to the DB.
+	 *
+	 * @param e - mouse click.
+	 */
 	const sendDailyUpdate = (e: MouseEvent): void => {
 		e.preventDefault()
 
